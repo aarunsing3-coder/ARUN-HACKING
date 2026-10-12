@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#05070a">
+<title>ARUN HACKER | Cyber Tools</title>
+<style>
+:root {
+  --bg: #05070a;
+  --panel: #0b1110;
+  --green: #00ff9d;
+  --text: #e5fff2;
+  --muted: #86a398;
+  --border: #18372b;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, Arial, sans-serif;
+}
+header {
+  padding: 18px 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid var(--border);
+  background: #070c0a;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+.logo {
+  color: var(--green);
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  font-size: 21px;
+}
+.status { color: var(--green); font-size: 12px; }
+.hero {
+  text-align: center;
+  padding: 65px 18px 42px;
+  background: radial-gradient(ellipse at top, #103323 0%, #05070a 65%);
+}
+.badge {
+  display: inline-block;
+  color: var(--green);
+  border: 1px solid #176342;
+  padding: 7px 12px;
+  border-radius: 30px;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+h1 {
+  font-size: clamp(35px, 8vw, 66px);
+  margin: 22px 0 12px;
+  line-height: 1.08;
+}
+h1 span { color: var(--green); }
+.hero p {
+  color: var(--muted);
+  max-width: 580px;
+  margin: auto;
+  line-height: 1.8;
+}
+main { max-width: 1100px; margin: auto; padding: 25px 18px 60px; }
+.section-title { font-size: 21px; margin: 20px 0; }
+.section-title span { color: var(--green); }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr));
+  gap: 16px;
+}
+.card {
+  border: 1px solid var(--border);
+  background: linear-gradient(145deg, #0c1511, #080c0b);
+  padding: 21px;
+  border-radius: 14px;
+  min-width: 0;
+  transition: .2s;
+}
+.card:hover { border-color: var(--green); transform: translateY(-3px); }
+.icon { font-size: 27px; }
+h3 { margin: 13px 0 8px; }
+.card p { color: var(--muted); font-size: 13px; line-height: 1.6; }
+label { display: block; color: var(--muted); font-size: 13px; margin: 12px 0 7px; }
+input, textarea, select {
+  width: 100%;
+  background: #050907;
+  color: var(--text);
+  border: 1px solid #244536;
+  border-radius: 8px;
+  padding: 12px;
+  outline: none;
+  font: inherit;
+}
+input:focus, textarea:focus { border-color: var(--green); }
+textarea { resize: vertical; min-height: 100px; }
+button {
+  background: var(--green);
+  color: #00170c;
+  border: 0;
+  border-radius: 8px;
+  padding: 11px 15px;
+  font-weight: 800;
+  cursor: pointer;
+  margin-top: 12px;
+}
+button:hover { filter: brightness(.88); }
+.output {
+  margin-top: 12px;
+  color: var(--green);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+.tools { margin-top: 36px; }
+footer {
+  text-align: center;
+  border-top: 1px solid var(--border);
+  padding: 26px 15px;
+  color: var(--muted);
+  font-size: 12px;
+}
+footer span { color: var(--green); }
+.terminal {
+  color: var(--green);
+  font-family: monospace;
+  font-size: 12px;
+  margin-top: 25px;
+}
+@media(max-width:480px) {
+  header { padding: 15px; }
+  .logo { font-size: 17px; }
+  .hero { padding-top: 48px; }
+  main { padding-left: 14px; padding-right: 14px; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">▰ ARUN HACKER</div>
+  <div class="status">● SYSTEM ONLINE</div>
+</header>
+
+<section class="hero">
+  <div class="badge">CYBER TOOLS PLATFORM v1.0</div>
+  <h1>Trace<span>.</span> Analyze<span>.</span><br>Discover<span>.</span></h1>
+  <p>A modern collection of browser-based developer utilities and security information tools. Fast, responsive and easy to use.</p>
+  <div class="terminal">visitor@arun-hacker:~$ tools --list<br>Loading utilities... <span style="color:white">[READY]</span></div>
+</section>
+
+<main>
+  <h2 class="section-title"><span>//</span> Available Tools</h2>
+  <div class="grid">
+    <article class="card">
+      <div class="icon">🔐</div>
+      <h3>Password Strength</h3>
+      <p>Check password strength locally in your browser. Your input is not uploaded.</p>
+      <label for="password">Enter a test password</label>
+      <input id="password" type="password" placeholder="Enter password" autocomplete="off">
+      <button onclick="checkPassword()">Analyze Password</button>
+      <div class="output" id="passwordResult" aria-live="polite"></div>
+    </article>
+
+    <article class="card">
+      <div class="icon">🧩</div>
+      <h3>JSON Formatter</h3>
+      <p>Format and validate JSON data directly in your browser.</p>
+      <label for="jsonInput">JSON input</label>
+      <textarea id="jsonInput" placeholder='{"name":"ARUN HACKER","status":"online"}'></textarea>
+      <button onclick="formatJSON()">Format JSON</button>
+      <div class="output" id="jsonResult" aria-live="polite"></div>
+    </article>
+
+    <article class="card">
+      <div class="icon">🔤</div>
+      <h3>Base64 Encoder / Decoder</h3>
+      <p>Encode text to Base64 or decode Base64 back to text.</p>
+      <label for="baseInput">Text</label>
+      <textarea id="baseInput" placeholder="Enter text here"></textarea>
+      <button onclick="base64Convert('encode')">Encode</button>
+      <button onclick="base64Convert('decode')">Decode</button>
+      <div class="output" id="baseResult" aria-live="polite"></div>
+    </article>
+
+    <article class="card">
+      <div class="icon">🌐</div>
+      <h3>Public IP Information</h3>
+      <p>Check the public IP address visible to an external IP service.</p>
+      <button onclick="getIP()">Check My Public IP</button>
+      <div class="output" id="ipResult" aria-live="polite"></div>
+    </article>
+
+    <article class="card">
+      <div class="icon">🔎</div>
+      <h3>Domain & DNS Research</h3>
+      <p>Open public DNS records for a domain using Google's DNS-over-HTTPS service.</p>
+      <label for="domainInput">Domain name</label>
+      <input id="domainInput" placeholder="example.com" autocomplete="url">
+      <button onclick="lookupDNS()">Lookup DNS</button>
+      <div class="output" id="dnsResult" aria-live="polite"></div>
+    </article>
+
+    <article class="card">
+      <div class="icon">🛡️</div>
+      <h3>Security Resources</h3>
+      <p>Learn about HTTPS, secure browsing and website security best practices.</p>
+      <button onclick="window.open('https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview','_blank','noopener')">Explore HTTP Docs</button>
+      <div class="output">Educational resources for safer web development.</div>
+    </article>
+  </div>
+
+  <section class="tools">
+    <h2 class="section-title"><span>//</span> About This Platform</h2>
+    <div class="card">
+      <h3>Built for Developers</h3>
+      <p>ARUN HACKER brings useful browser utilities together in one responsive interface. More tools and features can be added as the project grows.</p>
+      <p>These utilities do not provide private phone-number records, Aadhaar details, or unauthorized access to accounts and devices.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div>© <span id="year"></span> <span>ARUN HACKER</span> · Developer Tools Platform</div>
+  <p>Built for learning, development and authorized security research.</p>
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+function checkPassword() {
+  const value = document.getElementById("password").value;
+  const result = document.getElementById("passwordResult");
+  if (!value) {
+    result.textContent = "Enter a password to analyze.";
+    return;
+  }
+  let score = 0;
+  if (value.length >= 8) score++;
+  if (value.length >= 12) score++;
+  if (/[a-z]/.test(value) && /[A-Z]/.test(value)) score++;
+  if (/[0-9]/.test(value)) score++;
+  if (/[^a-zA-Z0-9]/.test(value)) score++;
+  const labels = ["Very weak", "Weak", "Fair", "Good", "Strong", "Very strong"];
+  result.textContent = "Strength: " + labels[score] +
+    "\nLength: " + value.length + " characters" +
+    "\nTip: use a unique passphrase and never reuse passwords.";
+}
+
+function formatJSON() {
+  const result = document.getElementById("jsonResult");
+  try {
+    const data = JSON.parse(document.getElementById("jsonInput").value);
+    result.textContent = JSON.stringify(data, null, 2);
+  } catch (e) {
+    result.textContent = "Invalid JSON. Check commas, quotes and brackets.";
+  }
+}
+
+function base64Convert(mode) {
+  const value = document.getElementById("baseInput").value;
+  const result = document.getElementById("baseResult");
+  try {
+    if (mode === "encode") {
+      const bytes = new TextEncoder().encode(value);
+      let binary = "";
+      bytes.forEach(b => binary += String.fromCharCode(b));
+      result.textContent = btoa(binary);
+    } else {
+      const binary = atob(value.trim());
+      const bytes = Uint8Array.from(binary, c => c.charCodeAt(0));
+      result.textContent = new TextDecoder("utf-8", {fatal:true}).decode(bytes);
+    }
+  } catch (e) {
+    result.textContent = "Unable to convert. Check your input.";
+  }
+}
+
+async function getIP() {
+  const result = document.getElementById("ipResult");
+  result.textContent = "Checking public IP...";
+  try {
+    const response = await fetch("https://api.ipify.org?format=json");
+    if (!response.ok) throw new Error();
+    const data = await response.json();
+    result.textContent = "Public IP: " + data.ip +
+      "\nThis is the public IP reported by the external service.";
+  } catch {
+    result.textContent = "Could not fetch IP. Check your internet connection.";
+  }
+}
+
+async function lookupDNS() {
+  const input = document.getElementById("domainInput").value.trim();
+  const result = document.getElementById("dnsResult");
+  if (!/^(?=.{1,253}$)([a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\\.)+[a-zA-Z]{2,63}$/.test(input)) {
+    result.textContent = "Enter a valid domain, for example example.com.";
+    return;
+  }
+  result.textContent = "Looking up public A records...";
+  try {
+    const url = "https://dns.google/resolve?name=" + encodeURIComponent(input) + "&type=A";
+    const response = await fetch(url);
+    if (!response.ok) throw new Error();
+    const data = await response.json();
+    result.textContent = data.Answer
+      ? data.Answer.map(item => item.data).join("\\n")
+      : "No A records found in this response.";
+  } catch {
+    result.textContent = "DNS lookup failed. Please try again.";
+  }
+}
+</script>
+</body>
+</html>
