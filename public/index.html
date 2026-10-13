@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#050b0a"><title>ARUN HACKER — Call Intelligence Suite</title>
+<style>
+:root{--bg:#030807;--panel:#071310;--panel2:#091a16;--green:#00f5a0;--green2:#00bd7a;--text:#d8fff0;--muted:#83b8a8;--line:#075c43;--red:#ff625f}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#06231a 0,#030807 48%);color:var(--text);font:15px system-ui,Arial,sans-serif;min-height:100vh}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 4%;border-bottom:1px solid var(--line);background:#020605eF;position:sticky;top:0;z-index:2}
+.brand{font-size:clamp(20px,3vw,32px);font-weight:900;letter-spacing:1px}.brand span{color:var(--green)}.sub{font-size:11px;letter-spacing:3px;color:var(--muted)}.online{color:var(--green);border:1px solid var(--line);border-radius:99px;padding:8px 12px;font-size:12px}
+.layout{display:grid;grid-template-columns:190px minmax(0,1fr);gap:16px;max-width:1400px;margin:auto;padding:18px}
+nav,.panel,.hero,.stat{border:1px solid var(--line);background:linear-gradient(145deg,#07140f,#030807);border-radius:12px}
+nav{padding:12px;height:max-content}nav button{width:100%;text-align:left;background:transparent;border:0;color:var(--muted);padding:12px;border-radius:7px;cursor:pointer}nav button:hover,nav button.active{background:#063a28;color:var(--green)}
+main{min-width:0}.hero{padding:22px;margin-bottom:14px;background:linear-gradient(100deg,#04130e,#071b14);display:flex;align-items:center;justify-content:space-between;gap:16px}.hero h1{font-size:clamp(22px,4vw,40px);margin:0;color:var(--green)}.hero p{margin:7px 0 0;color:var(--muted)}.tag{font:12px monospace;color:var(--green);border:1px solid var(--line);padding:10px;border-radius:7px}
+.columns{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr);gap:14px}.panel{padding:16px;margin-bottom:14px}.panel h2{font-size:17px;margin:0 0 14px;color:var(--green)}input,select,textarea{width:100%;padding:12px;margin:5px 0 10px;border:1px solid #17664e;background:#020a07;color:var(--text);border-radius:8px;font:inherit}button,.btn{background:#00d88d;color:#00160e;border:0;border-radius:8px;padding:11px 14px;font-weight:800;cursor:pointer}button.secondary{background:#0a2119;color:var(--text);border:1px solid var(--line)}button.danger{background:#351411;color:#ffaaa6;border:1px solid #73322c}.btnrow{display:flex;flex-wrap:wrap;gap:8px}.keys{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;max-width:330px;margin:12px auto}.keys button{height:54px;background:#061b13;color:var(--text);border:1px solid var(--green2);font-size:21px}.keys button small{display:block;font-size:9px;color:var(--muted)}.call{display:block;width:min(100%,330px);margin:12px auto;background:var(--green);font-size:17px}.muted{color:var(--muted);font-size:13px}.result{padding:12px;background:#03100b;border:1px solid var(--line);border-radius:8px;margin-top:10px;overflow-wrap:anywhere}.hidden{display:none!important}.listitem{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 0;border-bottom:1px solid #123328}.status{color:var(--green)}footer{text-align:center;color:var(--muted);font-size:12px;padding:20px;border-top:1px solid var(--line)}#message{margin:10px 0;color:var(--green);min-height:20px}
+@media(max-width:850px){.layout{grid-template-columns:1fr;padding:10px}nav{display:flex;overflow:auto;gap:4px}nav button{min-width:max-content;width:auto}.columns{grid-template-columns:1fr}.hero{align-items:flex-start;flex-direction:column}header{padding:14px}}
+</style>
+</head>
+<body>
+<header><div><div class="brand">ARUN <span>HACKER</span></div><div class="sub">CALL INTELLIGENCE SUITE</div></div><div class="online">● SYSTEM ONLINE</div></header>
+<div class="layout">
+<nav aria-label="Main navigation">
+<button class="active" data-panel="dialer">⌂ Home / Dialer</button><button data-panel="lookup">⌕ Caller ID</button><button data-panel="spam">⬡ Spam Checker</button><button data-panel="saved">★ Favorites</button><button data-panel="account">◉ Login / Register</button>
+</nav>
+<main>
+<section class="hero"><div><h1>TRACE / ANALYZE / DISCOVER</h1><p>Call Intelligence Suite · Privacy First · Authorized data only</p></div><div class="tag">root@arun:~$ <span class="status">ready</span></div></section>
+<div id="message" role="status" aria-live="polite"></div>
+<div class="columns">
+<section>
+<div class="panel" id="dialer"><h2>▦ Dial Pad</h2><label for="phone">Phone number</label><input id="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Enter phone number" maxlength="20">
+<div class="keys" id="keys">
+<button type="button" data-key="1">1</button><button type="button" data-key="2">2<small>ABC</small></button><button type="button" data-key="3">3<small>DEF</small></button>
+<button type="button" data-key="4">4<small>GHI</small></button><button type="button" data-key="5">5<small>JKL</small></button><button type="button" data-key="6">6<small>MNO</small></button>
+<button type="button" data-key="7">7<small>PQRS</small></button><button type="button" data-key="8">8<small>TUV</small></button><button type="button" data-key="9">9<small>WXYZ</small></button>
+<button type="button" data-key="*">*</button><button type="button" data-key="0">0<small>+</small></button><button type="button" data-key="#">#</button>
+</div>
+<div class="btnrow"><button type="button" class="secondary" id="backspace">⌫ Delete</button><button type="button" class="secondary" id="clear">Clear</button><button type="button" class="secondary" id="saveFav">★ Save Favorite</button></div>
+<button type="button" class="call" id="callNow">☎ CALL NOW</button><p class="muted">Call Now opens your device dialer. Confirm the call on your device.</p></div>
+<div class="panel" id="lookup"><h2>⌕ Caller ID / Number Search</h2><p class="muted">Checks this site's submitted spam reports. Verified caller names need an authorized provider API.</p><button type="button" id="searchBtn">Search number</button><div id="searchResult" class="result hidden"></div></div>
+<div class="panel" id="spam"><h2>⬡ Submit Spam Report</h2><label for="category">Report category</label><select id="category"><option>Telemarketing</option><option>Scam suspected</option><option>Robocall</option><option>Unwanted calls</option></select><label for="note">Optional note (do not add sensitive personal data)</label><textarea id="note" rows="2" maxlength="240" placeholder="Short reason"></textarea><button type="button" id="reportBtn">Submit report</button><p class="muted">Reports are community-submitted and are not independently verified.</p></div>
+</section>
+<section>
+<div class="panel" id="saved"><h2>★ Favorites</h2><p class="muted" id="favHint">Log in to sync favorites with the database.</p><div id="favoritesList"></div><button type="button" class="secondary" id="refreshFav">Refresh favorites</button></div>
+<div class="panel"><h2>◉ Account</h2><div id="account">
+<label for="email">Email</label><input id="email" type="email" autocomplete="email" placeholder="you@example.com">
+<label for="password">Password (8+ characters to register)</label><input id="password" type="password" autocomplete="current-password" placeholder="Password">
+<div class="btnrow"><button type="button" id="registerBtn">Register</button><button type="button" id="loginBtn" class="secondary">Login</button><button type="button" id="logoutBtn" class="danger hidden">Logout</button></div><p class="muted" id="userStatus">Not logged in</p></div></div>
+<div class="panel"><h2>▤ Recent Search History</h2><p class="muted">History is stored for logged-in searches only.</p><button type="button" id="historyBtn" class="secondary">Load history</button><div id="historyList"></div></div>
+<div class="panel"><h2>Privacy / Capability</h2><p class="muted">This website cannot secretly place calls, read the phone's native call log, or reveal private live location. Only user-submitted reports and connected authorized providers are used.</p></div>
+</section>
+</div></main></div>
+<footer>ARUN HACKER · Call Intelligence Suite v1.0 · Privacy First</footer>
+<script>
+(() => {
+const $ = id => document.getElementById(id);
+let token = '';
+const setMsg = (s, bad=false) => { $('message').textContent=s; $('message').style.color=bad?'#ff8984':'#00f5a0'; };
+const phone = () => $('phone').value.trim();
+const headers = () => ({'Content-Type':'application/json', ...(token ? {Authorization:'Bearer '+token} : {})});
+async function api(url, options={}) {
+  const r = await fetch(url, {...options, headers:{...headers(), ...(options.headers||{})}});
+  let data={}; try { data=await r.json(); } catch {}
+  if(!r.ok) throw new Error(data.error || data.message || 'Request failed');
+  return data;
+}
+function needPhone(){ if(phone().replace(/\D/g,'').length<7){setMsg('Please enter a valid phone number.',true);return false;} return true; }
+$('keys').addEventListener('click', e=>{const b=e.target.closest('[data-key]');if(b){$('phone').value+=b.dataset.key;$('phone').focus();}});
+$('backspace').addEventListener('click',()=>{$('phone').value=$('phone').value.slice(0,-1);});
+$('clear').addEventListener('click',()=>{$('phone').value='';$('phone').focus();});
+$('callNow').addEventListener('click',()=>{if(!needPhone())return; location.href='tel:'+phone().replace(/[^\d+*#]/g,'');});
+$('searchBtn').addEventListener('click', async()=>{if(!needPhone())return;try{const d=await api('/api/search',{method:'POST',body:JSON.stringify({phone:phone()})});$('searchResult').classList.remove('hidden');$('searchResult').textContent=`Number: ${d.phone}\nCaller ID: ${d.callerIdMessage}\nSpam reports: ${d.spam.reports}\n${d.disclaimer}`;setMsg('Search complete.');}catch(e){setMsg(e.message,true);}});
+$('reportBtn').addEventListener('click',async()=>{if(!needPhone())return;try{const d=await api('/api/spam-report',{method:'POST',body:JSON.stringify({phone:phone(),category:$('category').value,note:$('note').value})});setMsg(d.message);$('note').value='';}catch(e){setMsg(e.message,true);}});
+function showAuth(){const yes=!!token;$('logoutBtn').classList.toggle('hidden',!yes);$('loginBtn').classList.toggle('hidden',yes);$('registerBtn').classList.toggle('hidden',yes);$('userStatus').textContent=yes?'Logged in. Favorites/history sync to database.':'Not logged in';$('favHint').textContent=yes?'Your saved numbers are stored in the database.':'Log in to sync favorites with the database.';}
+async function authAction(which){const email=$('email').value.trim(),password=$('password').value;if(!email||!password){setMsg('Enter email and password.',true);return;}try{const d=await api('/api/'+which,{method:'POST',body:JSON.stringify({email,password})});token=d.token;showAuth();setMsg(which==='register'?'Account created.':'Login successful.');loadFavorites();}catch(e){setMsg(e.message,true);}}
+$('registerBtn').addEventListener('click',()=>authAction('register'));$('loginBtn').addEventListener('click',()=>authAction('login'));
+$('logoutBtn').addEventListener('click',()=>{token='';showAuth();$('favoritesList').textContent='';$('historyList').textContent='';setMsg('Logged out.');});
+$('saveFav').addEventListener('click',async()=>{if(!needPhone())return;if(!token){setMsg('Please log in before saving favorites.',true);return;}const label=prompt('Optional label for this number:')||'';try{await api('/api/favorites',{method:'POST',body:JSON.stringify({phone:phone(),label})});setMsg('Favorite saved.');loadFavorites();}catch(e){setMsg(e.message,true);}});
+async function loadFavorites(){if(!token){$('favoritesList').textContent='Log in to see saved favorites.';return;}try{const rows=await api('/api/favorites');$('favoritesList').textContent='';if(!rows.length){$('favoritesList').textContent='No favorites saved yet.';return;}rows.forEach(x=>{const row=document.createElement('div');row.className='listitem';const span=document.createElement('span');span.textContent=(x.label?x.label+' — ':'')+x.phone;const del=document.createElement('button');del.className='danger';del.textContent='Remove';del.addEventListener('click',async()=>{try{await api('/api/favorites/'+x.id,{method:'DELETE'});loadFavorites();}catch(e){setMsg(e.message,true);}});const call=document.createElement('button');call.textContent='Call';call.addEventListener('click',()=>location.href='tel:'+x.phone);row.append(span,call,del);$('favoritesList').append(row);});}catch(e){setMsg(e.message,true);}}
+$('refreshFav').addEventListener('click',loadFavorites);
+$('historyBtn').addEventListener('click',async()=>{if(!token){setMsg('Log in to load search history.',true);return;}try{const rows=await api('/api/history');$('historyList').textContent='';if(!rows.length)$('historyList').textContent='No saved searches.';rows.forEach(x=>{const d=document.createElement('div');d.className='listitem';d.textContent=x.phone+' · '+x.created_at;$('historyList').append(d);});}catch(e){setMsg(e.message,true);}});
+document.querySelectorAll('nav [data-panel]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');const target=$(b.dataset.panel);if(target)target.scrollIntoView({behavior:'smooth',block:'start'});}));
+showAuth();
+})();
+</script>
+</body></html>
