@@ -1,0 +1,14 @@
+{
+  "name": "arun-hacker-call-suite",
+  "version": "2.0.0",
+  "private": true,
+  "description": "ARUN HACKER Call Intelligence Suite for Vercel + Supabase",
+  "scripts": {"start": "vercel dev"},
+  "engines": {"node": ">=20"},
+  "dependencies": {
+    "@supabase/supabase-js": "^2.57.0",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {"vercel": "^41.7.0"}
+}
