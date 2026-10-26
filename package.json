@@ -1,0 +1,11 @@
+{
+  "name": "arun-hacker-linkverse-pro",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "vercel dev"
+  },
+  "devDependencies": {
+    "vercel": "^39.0.0"
+  }
+}
